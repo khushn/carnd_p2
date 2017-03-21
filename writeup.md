@@ -5,7 +5,7 @@
 [//]: # (Image References)
 
 [image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
+[image2]: ./examples/before_after_normalization.png "Normalization"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./images_from_web/sl_70.jpg "Traffic Sign 1"
 [image5]: ./images_from_web/children.jpg "Traffic Sign 2"
@@ -14,7 +14,8 @@
 [image8]: ./images_from_web/stop.jpg "Traffic Sign 5"
 
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+
+Below I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 
 
@@ -25,7 +26,7 @@
 #### 1 The dataset
 We the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) to train our convolutional neural network(CNN). It had been pre-processed by Udacity so that images are 32x32x3
 
-The code for this step is contained in the 2nd code cell of the IPython notebook.  
+Code: 2nd code cell of the IPython notebook.  
 
 I used the basic python libs to calculate summary statistics of the traffic
 signs data set:
@@ -38,21 +39,23 @@ signs data set:
 
 #### 2. Exploratory visualization of the dataset
 
-The code for this step is contained in the third code cell of the IPython notebook.  
+Code: 3rd code cell  
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. We show a random image, along with its label picked up from the dictionary of signs. 
+
+(TBD: It is a bar chart showing how the data ...)
 
 ![alt text][image1]
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+####1. Preprocessing using normalization
 
-The code for this step is contained in the fourth code cell of the IPython notebook.
+Code: 4th code cell
 
-As a first step, I decided to convert the images to grayscale because ...
+I used normalization as a technique to preprocess. Because I wanted to bring the values in a range of 0 to 1 from 0 to 255. I used OpenCV's normalize function for the same. 
 
-Here is an example of a traffic sign image before and after grayscaling.
+Here is an example of a traffic sign image before and after normalizing.
 
 ![alt text][image2]
 
