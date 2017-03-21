@@ -16,16 +16,14 @@
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
----
-###Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
-You're reading it! and here is a link to my [project code](./Traffic_Sign_Classifier.ipynb)
+### Link to my [project code](./Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
-####1 We the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) to train our convolutional neural network(CNN). It had been pre-processed by Udacity so that images are 32x32x3
+#### 1 The dataset
+We the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset) to train our convolutional neural network(CNN). It had been pre-processed by Udacity so that images are 32x32x3
 
 The code for this step is contained in the 2nd code cell of the IPython notebook.  
 
@@ -38,7 +36,7 @@ signs data set:
 * Number of classes = 43
 
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### 2. Exploratory visualization of the dataset
 
 The code for this step is contained in the third code cell of the IPython notebook.  
 
