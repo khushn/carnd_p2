@@ -62,9 +62,9 @@ Here is an example of a traffic sign image before and after normalizing.
 
 #### 3.  Final model architecture
 
-Code: 6th cell
+Code: 6th to 9th cell
 
-My final model consisted of the following layers:
+My final model consisted of the following layers. Its basically a LeNet, but I removed the maxpool layers after each convolution, for reasons mentioned in 'The training of the CNN' below this section.
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -82,37 +82,35 @@ My final model consisted of the following layers:
  
 
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 4. The training of the CNN
 
-The code for training the model is located in the eigth cell of the ipython notebook. 
+Code: 10th cell
 
-To train the model, I used an ....
+I trained the model on AWS GPU (g2.xlarge) instances. Starting point was the udacity-carnd AMI. In the end I built my own AMI, having the trained model, for possible future use.
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+I used AdamOptimizer, with no. of Epochs as 50. After training various times I noticed that accuracy was saturating after a while. Batch size of 128. On removing the two max pool layers (discussed below), the model size became huge. The model file size on disk is 137 MB. Whereas as with MaxPool layers it was less than an MB.
+
+
+#### 5. Approach for finding the solution
 
 The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
 
+#### Started with LeNet
+I started by using the LeNet architecture. After some 8 tries with different hyper parameter values (mainly varying the learning rate from .001 to .0001) and changing the no. of epochs, the validation accuracy, remained just below .93. 
+
+##### Removed Max pool layers
+After that I removed the two max pool layers. Then validation accuracy jumped upto .96 (well above the required threshold). This definitely made the model much bigger. Even on a GPU it took around 10 minutes to train. 
+
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* validation set accuracy of: .96
+* test set accuracy of: .944
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+Since the test accuracy, is below the validation accuracy, I believe the model does not suffer the problem of overfitting.
  
 
-###Test a Model on New Images
+### Test the Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
