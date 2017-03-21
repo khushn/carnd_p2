@@ -59,42 +59,26 @@ Here is an example of a traffic sign image before and after normalizing.
 
 ![alt text][image2]
 
-As a last step, I normalized the image data because ...
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+#### 3.  Final model architecture
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
-
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
-
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
-
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ... 
-
-
-####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-The code for my final model is located in the seventh cell of the ipython notebook. 
+Code: 6th cell
 
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Convolution 5x5x6     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Convolution 5x5x16	    |  1x1 stride, valid padding, outputs 24x24x16.      									|
+| RELU					|												|
+| Fully connected(fc1)		| Input: 9216(24x24x16), output:1200        									|
+| RELU					|												|
+| Fully connected(fc2)		| Input: 1200 output:300        									|
+| RELU					|												|
+| Fully connected(fc3)		| Input: 300 output:43        									|
+
  
 
 
