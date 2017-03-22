@@ -12,6 +12,10 @@
 [image6]: ./images_from_web/no_entry.jpg "Traffic Sign 3"
 [image7]: ./images_from_web/sl_80.jpg "Traffic Sign 4"
 [image8]: ./images_from_web/stop.jpg "Traffic Sign 5"
+[image9]: ./examples/visualize_conv1.png "visualize conv1"
+[image10]: ./examples/visualize_relu1.png "visualize relu1"
+[image11]: ./examples/visualize_conv2.png "visualize conv2"
+[image12]: ./examples/visualize_relu1.png "visualize relu2"
 
 ## Rubric Points
 
@@ -41,9 +45,7 @@ signs data set:
 
 Code: 3rd code cell  
 
-Here is an exploratory visualization of the data set. We show a random image, along with its label picked up from the dictionary of signs. 
-
-(TBD: It is a bar chart showing how the data ...)
+Here is an exploratory visualization of the data set. We Also show a random image, along with its label picked up from the dictionary of signs. 
 
 ![alt text][image1]
 
@@ -152,3 +154,20 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 
 For the second image ... 
+
+### Visualize the Neural Network's State with Test Images
+Code: Last section (end of the notebook)
+Image used (Children crossing: 
+![alt text][image5]
+
+The code for this was slightly tricky, as I had already trained the model without the layers being named. But thankfully, after some forum help, was able to know and use sess.graph.get_tensor_by_name() function: 
+e.g. conv1 = sess.graph.get_tensor_by_name('Conv2D:0')
+
+Below are the visualization feature layers: 
+![alt text][image9]
+![alt text][image10]
+![alt text][image11]
+![alt text][image12]
+
+#### Visualization analysis
+Conv1 layer features have lot of similarity with the original image. But even there each cell highlights some different things. Example some have caught the right slanting edge, and others the left. The Relu layer makes the image more dark. Naturally so, as it catches only values above 0. (I guess matplotlib normalizes the values in an above 0 range, before plotting). So Relu layer shows only the most prominent features. By Conv2 layer number of feature matrices are 16. So I guess, each one looks for something specific. For some its hard to tell what they are looking. Again Relu2 after conv2, becomes even more sparse. Some where in the bits of that layer, we have encoded the necessary high level features. As the thing works!
