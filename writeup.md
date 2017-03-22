@@ -4,7 +4,7 @@
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
+[image1]: ./examples/traffic_sign_counts.png "Visualization of traffic sign numbers"
 [image2]: ./examples/before_after_normalization.png "Normalization"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./images_from_web/sl_70.jpg "Traffic Sign 1"
