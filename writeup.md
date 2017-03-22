@@ -171,3 +171,4 @@ Below are the visualization feature layers:
 
 #### Visualization analysis
 Conv1 layer features have lot of similarity with the original image. But even there each cell highlights some different things. Example some have caught the right slanting edge, and others the left. The Relu layer makes the image more dark. Naturally so, as it catches only values above 0. (I guess matplotlib normalizes the values in an above 0 range, before plotting). So Relu layer shows only the most prominent features. By Conv2 layer number of feature matrices are 16. So I guess, each one looks for something specific. For some its hard to tell what they are looking. Again Relu2 after conv2, becomes even more sparse. Some where in the bits of that layer, we have encoded the necessary high level features. As the thing works!
+
