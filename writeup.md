@@ -185,10 +185,10 @@ Code: is in the Ipython notebook in the cell below the prediction code cell.
 |Sign| Top 5 probabilities|
 |:---:|:--------------:|
 |Speed limit 70|0.989675 Speed limit (70km/h)|
-||0.0103248 Speed limit (20km/h)|
-||1.28908e-08 Speed limit (30km/h)|
-||2.38599e-14 Speed limit (80km/h)|
-||1.79223e-14 Roundabout mandatory|
+|-|0.0103248 Speed limit (20km/h)|
+|-|1.28908e-08 Speed limit (30km/h)|
+|-|2.38599e-14 Speed limit (80km/h)|
+|-|1.79223e-14 Roundabout mandatory|
 
 
 I decided to look at individual signs test accuracy, to understand individual signs better, below is one below. 
