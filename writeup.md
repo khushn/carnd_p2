@@ -16,6 +16,7 @@
 [image10]: ./examples/visualize_relu1.png "visualize relu1"
 [image11]: ./examples/visualize_conv2.png "visualize conv2"
 [image12]: ./examples/visualize_relu1.png "visualize relu2"
+[image13]: ./images_from_web/children.jpg "Children crossing"
 
 ## Rubric Points
 
@@ -185,7 +186,7 @@ For the second image ...
 ### Visualize the Neural Network's State with Test Images
 Code: Last section (end of the notebook)
 Image used (Children crossing: 
-![alt text][image5]
+![alt text][image13]
 
 The code for this was slightly tricky, as I had already trained the model without the layers being named. But thankfully, after some forum help, was able to know and use sess.graph.get_tensor_by_name() function: 
 e.g. conv1 = sess.graph.get_tensor_by_name('Conv2D:0')
