@@ -112,12 +112,30 @@ Since the test accuracy, is below the validation accuracy, I believe the model d
 
 #### Below is the summary of various models tried by me, and insights:
  
-| Epochs         		|     Learning rate	|Validation Accuracy| Model type | Sigma | Insight
-|:-----------------:|:----------------:|:-----------------:|:----------:|:------:|:-----:|
-|100| .001| .86|CNN filter size=3x3 and Maxpool layers|sigma=.1|Small model size fast training|
-|200| .001| .901|same as above|sigma=.1|Model size not big enough to train|
-|100| .001| .91|Made filter size 5x5|sigma=.2| Increasing the model size increase accuracy. More capacity!|
-|200|.001|.932| ""| ""| ""|
+| Epochs         		|Validation Accuracy| Model type | Sigma | Insight
+|:-----------------:|:----------------:|:----------:|:-----:|:------:|
+|100|  .86|CNN filter size=3x3 and Maxpool layers|sigma=.1|Small model size fast training|
+|200| .901|same as above|sigma=.1|Model size not big enough to train|
+|100|  .91|Made filter size 5x5|changed sigma=.2| Increasing the model size increase accuracy. More capacity!|
+|200|.932| ""| ""| interim step|
+|400|.927| ""| ""| Just wanted to try high # of Epochs. Validation accuracy came down.|
+|50| .921| Remove Max pool later below second layer| ""| Accuracy improved, as model got bigger!|
+|150| .922| ""| ""|And accuracy saturated around that|
+|50| .902|Removed both max pool, but increased 2nd filter to 7x7|""| Model became huge, but no betterment in validation accuracy, perhaps because of bigger filter|
+|50|.901|Reduced filter size to 5x5, Same as LeNet| ""| Still the same!|
+|50|.951|Model same but changed sigma|changed sigma=0.1| The accuracy jumped when sigma was lowered. Key Insight! Its discussed below|
+|30|.949|Same model, but retrain  upto Validatuon accuracy saturation| ""| Bingo!|
+
+Below are some core insights regarding learning rate, sigma and use of color images. 
+
+##### Learning rate was .001 for all the training done above: 
+Few times I played with a small learning rate. But since all the values are small because of normalization. It was really ineffective. At the core its multiplication of numbers. And so learning late is relative to that. That was a core insight of so much training.
+
+#### Sigma
+I tried a lot of models with sigma = 0.2. But they saturated much below the desired level. I guess that's because of lot of noise in the weights, and it takes much longer for the gradient descent to work. It possibly even failed, by getting stuck in some local minima. So sigma=0.1 was just right. 
+
+#### Use of color images
+I tried out with color images 32x32x3 and used the LeNet (minus MaxPool) model, same as that described above. With that validation accuracy was .96 and test was .943. But I decided to retain the grey scale image one, as wanted to be cautious against overfitting.
 
 ### Test the Model on New Images
 
