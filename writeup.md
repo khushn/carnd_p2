@@ -9,7 +9,7 @@
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./images_from_web/sl_70.jpg "Traffic Sign 1"
 [image5]: ./images_from_web/children.jpg "Traffic Sign 2"
-[image6]: ./images_from_web/no_entry.jpg "Traffic Sign 3"
+[image6]: ./images_from_web/no_entry.jpg =250x250"Traffic Sign 3"
 [image7]: ./images_from_web/sl_80.jpg "Traffic Sign 4"
 [image8]: ./images_from_web/stop.jpg "Traffic Sign 5"
 [image9]: ./examples/visualize_conv1.png "visualize conv1"
@@ -124,7 +124,7 @@ Since the test accuracy, is below the validation accuracy, I believe the model d
 |50| .902|Removed both max pool, but increased 2nd filter to 7x7|""| Model became huge, but no betterment in validation accuracy, perhaps because of bigger filter|
 |50|.901|Reduced filter size to 5x5, Same as LeNet| ""| Still the same!|
 |50|.951|Model same but changed sigma|changed sigma=0.1| The accuracy jumped when sigma was lowered. Key Insight! Its discussed below|
-|30|.949|Same model, but retrain  upto Validatuon accuracy saturation| ""| Bingo!|
+|30|.949|Same model, but retrain  upto Validation accuracy saturation| ""| Bingo!|
 
 Below are some core insights regarding learning rate, sigma and use of color images. 
 
@@ -139,7 +139,7 @@ I tried out with color images 32x32x3 and used the LeNet (minus MaxPool) model, 
 
 ### Test the Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. German traffic signs found on the web 
 
 Here are five German traffic signs that I found on the web:
 
