@@ -143,13 +143,24 @@ I tried out with color images 32x32x3 and used the LeNet (minus MaxPool) model, 
 #### 1. German traffic signs found on the web 
 
 Here are five German traffic signs that I found on the web:
+Speed Limit 70: 
+![alt text][image4] 
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+Wild animals crossing: 
+![alt text][image5]
 
-The first image might be difficult to classify because ...
+Priority:
+![alt text][image6] 
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+Speed Limit 80: 
+![alt text][image7]
+
+Stop: 
+![alt text][image8]
+
+All the images were hard, as they are of different sizes. Only 5 are shown above but I got a some 20 or so images, and tried all of them. My accuracy was low. Varied between .545 to .385. My final accuracy, as I added new images. It was a humbling experience for me, as this was much below the test accuracy of .93+. Discussion and insights are below
+
+####2. Discussion on the 'new images' results
 
 The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
 
@@ -182,6 +193,12 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 
 For the second image ... 
+
+### Accuracy of prediction of 80 km/h speed limit on the test set
+Code: Last second cell has the code
+
+Results: total:  630  count of  Speed limit (80km/h)
+Validation accuracy: .94 
 
 ### Visualize the Neural Network's State with Test Images
 Code: Last section (end of the notebook)
