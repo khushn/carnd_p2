@@ -114,8 +114,10 @@ Since the test accuracy, is below the validation accuracy, I believe the model d
  
 | Epochs         		|     Learning rate	|Validation Accuracy| Model type | Sigma | Insight
 |:-----------------:|:----------------:|:-----------------:|:----------:|:------:|:-----:|
-|100| .001| .86|CNN with Maxpool layers|sigma=.1|Small model size fast training|
-|200| .001| .901|CNN with Maxpool layers|sigma=.1|Model size not big enough to train|
+|100| .001| .86|CNN filter size=3x3 and Maxpool layers|sigma=.1|Small model size fast training|
+|200| .001| .901|same as above|sigma=.1|Model size not big enough to train|
+|100| .001| .91|Made filter size 5x5|sigma=.2| Increasing the model size increase accuracy. More capacity!|
+|200|.001|.932| ""| ""| ""|
 
 ### Test the Model on New Images
 
