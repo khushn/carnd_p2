@@ -51,11 +51,11 @@ Here is an exploratory visualization of the data set. We Also show a random imag
 
 ### Design and Test a Model Architecture
 
-####1. Preprocessing using normalization
+####1. Preprocessing using greyscale and normalization
 
 Code: 4th code cell
 
-I used normalization as a technique to preprocess. Because I wanted to bring the values in a range of 0 to 1 from 0 to 255. I used OpenCV's normalize function for the same. 
+I used both first greyscaling followed by normalization as a technique to preprocess. Because I wanted to bring the values in a range of 0 to 1 from 0 to 255. I used OpenCV's normalize function for the same. 
 
 Here is an example of a traffic sign image before and after normalizing.
 
@@ -70,7 +70,7 @@ My final model consisted of the following layers. Its basically a LeNet, but I r
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
+| Input         		| 32x32x1 RGB image   							| 
 | Convolution 5x5x6     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
 | Convolution 5x5x16	    |  1x1 stride, valid padding, outputs 24x24x16.      									|
@@ -90,7 +90,7 @@ Code: 10th cell
 
 I trained the model on AWS GPU (g2.xlarge) instances. Starting point was the udacity-carnd AMI. In the end I built my own AMI, having the trained model, for possible future use.
 
-I used AdamOptimizer, with no. of Epochs as 50. After training various times I noticed that accuracy was saturating after a while. Batch size of 128. On removing the two max pool layers (discussed below), the model size became huge. The model file size on disk is 137 MB. Whereas as with MaxPool layers it was less than an MB.
+I used AdamOptimizer, with no. of Epochs as 30. After training various times I noticed that accuracy was saturating after a while. Batch size of 250. On removing the two max pool layers (discussed below), the model size became huge. The model file size on disk is 182 MB. Whereas as with MaxPool layers it was just around an MB. That is because of the big fully connected layer fc1(9216x1200), which alone has 9 million weights. 
 
 
 #### 5. Approach for finding the solution
@@ -101,14 +101,21 @@ The code for calculating the accuracy of the model is located in the ninth cell 
 I started by using the LeNet architecture. After some 8 tries with different hyper parameter values (mainly varying the learning rate from .001 to .0001) and changing the no. of epochs, the validation accuracy, remained just below .93. 
 
 ##### Removed Max pool layers
-After that I removed the two max pool layers. Then validation accuracy jumped upto .96 (well above the required threshold). This definitely made the model much bigger. Even on a GPU it took around 10 minutes to train. 
+After that I removed the two max pool layers. Then validation accuracy jumped upto .949 (well above the required threshold). This definitely made the model much bigger. Even on a GPU it took around 10 minutes to train. But that involved a lot of tries of different models
 
 My final model results were:
-* validation set accuracy of: .96
-* test set accuracy of: .944
+* Training set accuracy of: 1 (reached around 10th Epoch)
+* validation set accuracy of: .949
+* test set accuracy of: .932
 
 Since the test accuracy, is below the validation accuracy, I believe the model does not suffer the problem of overfitting.
+
+#### Below is the summary of various models tried by me, and insights:
  
+| Epochs         		|     Learning rate	|Validation Accuracy| Model type | Sigma | Insight
+|:-----------------:|:----------------:|:-----------------:|:----------:|:------:|:-----:|
+|100| .001| .86|CNN with Maxpool layers|sigma=.1|Small model size fast training|
+|200| .001| .901|CNN with Maxpool layers|sigma=.1|Model size not big enough to train|
 
 ### Test the Model on New Images
 
