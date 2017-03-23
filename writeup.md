@@ -222,6 +222,7 @@ Validation accuracy: .94
 ### Visualize the Neural Network's State with Test Images
 Code: Last section (end of the notebook)
 Image used (Children crossing: 
+
 ![alt text][image13]
 
 The code for this was slightly tricky, as I had already trained the model without the layers being named. But thankfully, after some forum help, was able to know and use sess.graph.get_tensor_by_name() function: 
