@@ -142,7 +142,6 @@ I tried out with color images 32x32x3 and used the LeNet (minus MaxPool) model, 
 
 #### 1. German traffic signs found on the web 
 
-Here are five German traffic signs that I found on the web:
 Speed Limit 70: 
 ![alt text][image4] 
 
@@ -166,33 +165,33 @@ The code for making predictions on my final model is located in the tenth cell o
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Image			        |     Prediction	        					| Discussion|
+|:---------------------:|:---------------------:|:---------:| 
+| Speed Limit 70      		| Speed Limit 70| Fine!| 
+| Wild animals crossing 	| Slippery Road			| In the probability distribution, wild animals crossing was second with a low probability, if that's some consoltation|
+| Priority					| Priority											| Fine|
+| 80 km/h	      		| 80(in one case); 30 in others	| 30 is similar to 80. Also I realized that my images were bigger than what are there in test DB. Have analyzed that separately, below|
+| Stop			| Stop      							||
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 3 and 1/2 of the 5 traffic signs, which gives an accuracy of 70% for these 5. 
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+More discussion below.
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+#### 3. Softmax probabilities
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+Code: is in the Ipython notebook in the cell below the prediction code cell.
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+|Sign| Top 5 probabilities|
+|:---:|:--------------:|
+|Speed limit 70|0.989675 Speed limit (70km/h)|
+||0.0103248 Speed limit (20km/h)|
+||1.28908e-08 Speed limit (30km/h)|
+||2.38599e-14 Speed limit (80km/h)|
+||1.79223e-14 Roundabout mandatory|
 
 
-For the second image ... 
+I decided to look at individual signs test accuracy, to understand individual signs better, below is one below. 
 
 ### Accuracy of prediction of 80 km/h speed limit on the test set
 Code: Last second cell has the code
