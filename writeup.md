@@ -189,6 +189,26 @@ Code: is in the Ipython notebook in the cell below the prediction code cell.
 |-|1.28908e-08 Speed limit (30km/h)|
 |-|2.38599e-14 Speed limit (80km/h)|
 |-|1.79223e-14 Roundabout mandatory|
+|Wild animals crossing|0.999626 Slippery road|
+|-|0.000369339 Wild animals crossing|
+|-|3.19461e-06 Road work|
+|-|1.3045e-06 Double curve|
+|-|1.28474e-08 Beware of ice/snow|
+|Priority|0.997281 Priority road|
+|-|0.00271914 Ahead only|
+|-|1.59808e-08 End of all speed and passing limits|
+|-|7.07516e-09 Speed limit (30km/h)|
+|-|6.29958e-09 End of no passing|
+|80 km/h|1.0 Speed limit (80km/h)|
+|-|7.0043e-11 Speed limit (50km/h)|
+|-|1.94096e-12 Wild animals crossing|
+|-|2.45505e-13 No passing for vehicles over 3.5 metric tons|
+|-|1.31589e-13 Speed limit (100km/h)|
+|Stop|0.982638 Stop|
+|-|0.0100575 Ahead only|
+|-|0.00393836 Yield|
+|-|0.00329273 Turn right ahead|
+|-|5.53279e-05 No vehicles|
 
 
 I decided to look at individual signs test accuracy, to understand individual signs better, below is one below. 
